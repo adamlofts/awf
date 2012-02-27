@@ -173,7 +173,10 @@ public class HttpServer {
     protected List<IOLoop> getIoLoops() {
         return ioLoops;
     }
-
+    
+    protected ServerSocketChannel getServerChannel() {
+    	return serverChannel;
+    }
 
     private volatile LatchObserver observer;
 

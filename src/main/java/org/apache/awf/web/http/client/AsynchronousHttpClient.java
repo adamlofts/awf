@@ -31,6 +31,7 @@ import org.apache.awf.util.UrlUtil;
 import org.apache.awf.web.AsyncCallback;
 import org.apache.awf.web.AsyncResult;
 import org.apache.awf.web.http.protocol.HttpVerb;
+import org.apache.awf.web.http.client.SocketPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -77,20 +78,24 @@ public class AsynchronousHttpClient {
     static final String USER_AGENT_HEADER = "User-Agent: AWF AsynchronousHttpClient/0.2-SNAPSHOT\r\n";
     static final String NEWLINE = "\r\n";
 
+    private final SocketPool pool;
+
     /**
      * Create an instance of this type.
      */
     public AsynchronousHttpClient() {
-        this(IOLoop.INSTANCE);
+        this(IOLoop.INSTANCE, SocketPool.getDefault());
     }
 
     /**
      * Create an instance of this type, utilising the given <code>IOLoop</code>.
      * 
      * @param ioLoop the <code>IOLoop</code> to use.
+     * @param pool the <code>SocketPool</code> to use.
      */
-    public AsynchronousHttpClient(final IOLoop ioLoop) {
+    public AsynchronousHttpClient(final IOLoop ioLoop, final SocketPool pool) {
         this.ioLoop = ioLoop;
+        this.pool = pool;
     }
 
     /**
@@ -183,17 +188,32 @@ public class AsynchronousHttpClient {
      *            request was begun.
      */
     protected void doFetch(final AsyncResult<Response> callback, final long requestStarted) {
+        final String host = request.getURL().getHost();
+        int port = request.getURL().getPort();
+        port = port == -1 ? 80 : port;
 
         this.requestStarted = requestStarted;
+        responseCallback = callback;
+
+        // Look in the connection pool for the socket and shortcut if found
+        socket = pool.getPooledSocket(host, port);
+        if (socket != null) {
+            if (logger.isDebugEnabled()) {
+                logger.debug("Found pooled socket for " + host + ":" + port);
+            }
+            startTimeout();
+            onConnect();
+            return;
+        }
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("Creating new socket for " + host + ":" + port);
+        }
         try {
             socket = new AsynchronousSocket(SocketChannel.open());
         } catch (final IOException e) {
             logger.error("Error opening SocketChannel: {}" + e.getMessage());
         }
-
-        responseCallback = callback;
-        int port = request.getURL().getPort();
-        port = port == -1 ? 80 : port;
 
         startTimeout();
         socket.connect(request.getURL().getHost(), port, new AsyncResult<Boolean>() {
@@ -355,7 +375,16 @@ public class AsynchronousHttpClient {
             logger.debug("Following redirect, new url: {}, redirects left: {}", newUrl, request.getMaxRedirects());
             doFetch(responseCallback, requestStarted);
         } else {
-            close();
+            final String host = request.getURL().getHost();
+            int port = request.getURL().getPort();
+            port = port == -1 ? 80 : port;
+
+            AsynchronousSocket returnSocket = socket;
+            socket = null;
+
+            // Return the socket to the socketpool for re-use
+            pool.returnSocket(host, port, returnSocket);
+
             invokeResponseCallback();
         }
     }
