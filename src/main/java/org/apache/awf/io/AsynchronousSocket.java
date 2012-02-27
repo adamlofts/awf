@@ -67,6 +67,8 @@ public class AsynchronousSocket implements IOHandler {
     private final DynamicByteBuffer writeBuffer = DynamicByteBuffer.allocate(DEFAULT_INITIAL_WRITE_BYTEBUFFER_SIZE);
 
     private boolean reachedEOF = false;
+    
+    private long connectedTime = -1;
 
     /**
      * Creates a new {@code AsynchronousSocket} that will delegate its io
@@ -177,6 +179,7 @@ public class AsynchronousSocket implements IOHandler {
         if (channel.isConnectionPending()) {
             try {
                 channel.finishConnect();
+                connectedTime = System.currentTimeMillis();
                 invokeConnectSuccessfulCallback();
                 interestOps &= ~SelectionKey.OP_CONNECT;
                 ioLoop.updateHandler(channel, interestOps |= SelectionKey.OP_READ);
@@ -373,5 +376,17 @@ public class AsynchronousSocket implements IOHandler {
             invokeWriteCallback();
         }
     }
+    
+    public boolean isConnected() {
+    	return channel.isConnected();
+    }
 
+    /**
+     * Get the absolute time when this socket connected
+     * 
+     * @return long System.currentTimeMillis() when the socket was connected or -1 if not connected
+     */
+    public long getConnectedTime() {
+    	return connectedTime;
+    }
 }
