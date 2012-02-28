@@ -80,7 +80,7 @@ public class HttpBufferedLexer {
     };
 
     static final int METHOD_LENGTH = 7;
-    static final int URI_LENGTH = 255;
+    static final int URI_LENGTH = 8192;
     static final int VERSION_LENGTH = 10;
     static final int HEADER_NAME_LENGTH = 30;
     static final int HEADER_VALUE_LENGTH = 300;
