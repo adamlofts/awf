@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+	<!--
+		Licensed to the Apache Software Foundation (ASF) under one or more
+		contributor license agreements. See the NOTICE file distributed with
+		this work for additional information regarding copyright ownership.
+		The ASF licenses this file to You under the Apache License, Version
+		2.0 (the "License"); you may not use this file except in compliance
+		with the License. You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+		applicable law or agreed to in writing, software distributed under the
+		License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+		CONDITIONS OF ANY KIND, either express or implied. See the License for
+		the specific language governing permissions and limitations under the
+		License.
+	-->
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+	<properties>
+		<title>Apache AWF</title>
+	</properties>
+	<body>
+		<section name="Apache AWF">
+			<p>
+				Apache AWF aka Apache Asynchronous Web Framework, is a non-blocking, asynchronous, event driven high
+				performance web framework running on the JVM. AWF
+				is currently in
+				the
+				<a class="externalLink" href="http://incubator.apache.org/">Apache Incubator</a>
+				.
+			</p>
+			<p>
+				Find out more about AWF on our
+				<a class="externalLink" href="https://cwiki.apache.org/confluence/display/AWF">wiki</a>
+				.
+			</p>
+
+			<subsection name="Getting Started">
+				<p>
+					For the impatient, we have a
+					<a href="quick-start-guide.html">Quick Start Guide</a>
+					available.
+				</p>
+				<p>
+					There is also an
+					<a href="faq.html">FAQ</a>
+					which covers common questions, and a
+					<a href="configuration-guide.html">configuration guide</a>
+					for reference.
+				</p>
+			</subsection>
+
+			<subsection name="Getting Involved">
+				<p>
+					Would you like to contribute, and help to improve AWF ? Getting
+					<a href="contributor-guide.html">involved is easy</a>
+					.
+				</p>
+			</subsection>
+
+			<subsection name="Download">
+				<p>
+					Download a release of AWF from a
+					<a class="externalLink" href="http://www.apache.org/dyn/closer.cgi/incubator/awf/">nearby
+						mirror</a>
+					.
+				</p>
+			</subsection>
+
+			<subsection name="Disclaimer">
+				<p>
+					Apache AWF is an effort undergoing incubation at
+					<a class="externalLink" href="http://apache.org/">The Apache
+						Software Foundation</a>
+					(ASF), sponsored by the
+					<a class="externalLink" href="http://incubator.apache.org/">Apache Incubator PMC</a>
+					Incubation is required of all newly accepted projects until a
+					further
+					review indicates that the infrastructure, communications, and
+					decision making process have stabilized in a manner consistent with
+					other successful ASF projects. While incubation status is not
+					necessarily a reflection of the completeness or stability of the
+					code, it does indicate that the project has yet to be fully
+					endorsed
+					by the ASF.
+				</p>
+			</subsection>
+		</section>
+	</body>
+</document>

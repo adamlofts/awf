@@ -1,0 +1,218 @@
+<?xml-stylesheet type="text/xsl" href="./xdoc.xsl"?>
+	<!--
+		Licensed to the Apache Software Foundation (ASF) under one or more
+		contributor license agreements. See the NOTICE file distributed with
+		this work for additional information regarding copyright ownership.
+		The ASF licenses this file to You under the Apache License, Version
+		2.0 (the "License"); you may not use this file except in compliance
+		with the License. You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+		applicable law or agreed to in writing, software distributed under the
+		License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+		CONDITIONS OF ANY KIND, either express or implied. See the License for
+		the specific language governing permissions and limitations under the
+		License.
+	-->
+<document>
+	<properties>
+		<title>Apache AWF - Release Notes</title>
+	</properties>
+	<body>
+		<h1>Release Notes - AWF - Version 0.4.0</h1>
+		<h2> Bug
+</h2>
+		<ul>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-98'>DEFT-98</a>
+				] - Infinite loop if client disconnects
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-131'>DEFT-131</a>]
+				- AsynchronousHttpClient.fetch(..) &quot;leaks&quot;
+				IllegalArgumentException if port is out of range
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-144'>DEFT-144</a>
+				] - Improved HTTP headers parsing
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-149'>DEFT-149</a>
+				] - IOLoop.start() may throw CancelledKeyException
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-165'>DEFT-165</a>
+				] - Not injecting the IOLoop into each HttpRequest
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-168'>DEFT-168</a>
+				] - Allow user to specify etag header
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-169'>DEFT-169</a>
+				] - Add write(bytes[] data) method to HttpResponse
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-171'>DEFT-171</a>
+				] - Deft version should be correct in headers. Currently the
+				versions returned vary between client and response; are also
+				hard-coded.
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-173'>DEFT-173</a>
+				] - setReuseAddress(true) in HttpServer
+			</li>
+		</ul>
+
+		<h2> Improvement
+</h2>
+		<ul>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-18'>DEFT-18</a>
+				] - Deft Logo
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-84'>DEFT-84</a>
+				] - Add redirect method to HttpResponse
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-105'>DEFT-105</a>
+				] - Bug fixes and buffer improvements
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-112'>DEFT-112</a>
+				] - Optimized ByteBuffer usage in AsynchronousSocket
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-128'>DEFT-128</a>
+				] - Document the news in 0.3.0 (and 0.4.0)
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-147'>DEFT-147</a>
+				] - Make the etag header creation configurable
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-151'>DEFT-151</a>
+				] - Distributed demo application (elastica)
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-157'>DEFT-157</a>
+				] - Rename package to org.apache.deft
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-158'>DEFT-158</a>
+				] - Cleanup in deft/sandbox
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-159'>DEFT-159</a>
+				] - Recreate the existing tags (from gh)
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-166'>DEFT-166</a>
+				] - Add Javadoc to classes
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-167'>DEFT-167</a>
+				] - Use CharsetDecoder to convert ByteBuffer to String
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-170'>DEFT-170</a>
+				] - Close channel if we (during read) reach EOF and there is nothing
+				to write
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-175'>DEFT-175</a>
+				] - Expand the breadth of demonstration code.
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-177'>DEFT-177</a>
+				] - Update NEWS.txt with DEFT-52 (Cookies)
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-178'>DEFT-178</a>
+				] - Create an Interface between the API user and deft internal
+				plumbing system
+			</li>
+		</ul>
+
+		<h2> New Feature
+</h2>
+		<ul>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-52'>DEFT-52</a>
+				] - Cookies
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-96'>DEFT-96</a>
+				] - RFC 1123 Header Support
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-100'>DEFT-100</a>
+				] - Annotate RequestHandlers
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-117'>DEFT-117</a>
+				] - POST/PUT support in AsynchronousHttpClient
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-138'>DEFT-138</a>
+				] - HTTPS support for AsynchronousHttpClient
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-142'>DEFT-142</a>
+				] - Dynamic creation of RequestHandlers
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-148'>DEFT-148</a>
+				] - wrap AsyncCallbacks
+			</li>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-153'>DEFT-153</a>
+				] - Problems with PUT request
+			</li>
+		</ul>
+
+		<h2> Test
+</h2>
+		<ul>
+			<li>
+				[
+				<a class='externalLink' href='https://issues.apache.org/jira/browse/DEFT-145'>DEFT-145</a>
+				] - Create UT for #139 (multi threaded web server support)
+			</li>
+		</ul>
+	</body>
+</document>

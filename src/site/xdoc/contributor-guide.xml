@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to You under 
+	the Apache License, Version 2.0 (the "License"); you may not use this file except 
+	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed under 
+	the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific language 
+	governing permissions and limitations under the License. -->
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+	<properties>
+		<title>Apache AWF - Contributor Guide</title>
+	</properties>
+	<body>
+		<section name="Contributor Guide">
+			<p>
+				Anybody wishing to contribute code, ideas or their time in any other way is always welcome. This page provides an overview on how to go about becoming part of the team.
+			</p>
+
+			<subsection name="Getting Started">
+				<p>
+					To manage the code we use <a class="externalLink" href="http://subversion.apache.org/">Subversion</a>, and you can find more information on how we do that <a href="source-repository.html">here</a>. To start quickly, pull down a copy of the main branch, "trunk", like so:
+				</p>
+				<div class="source">
+					svn checkout http://svn.apache.org/repos/asf/incubator/awf/trunk/
+				</div>
+				<p>
+					Once the source is down, you should be able to import it into your chosen environment as you would any other Maven project. Eclipse	users might	want to firstly	run the following to generate project and classpath files:
+				</p>
+				<div class="source">
+					mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs
+				</div>
+				<p>
+					More information on this plug-in can be found <a class="externalLink" href="http://maven.apache.org/plugins/maven-eclipse-plugin/">here</a>, and if	it fails first time around you might want to build (see	below) and try again.
+				</p>
+				<p>
+					The project can be built within your development environment, or through standard Maven process:
+				</p>
+				<div class="source">
+					mvn clean install
+				</div>
+			</subsection>
+
+			<subsection name="Development">
+				<p>
+					Before anything else, it would be a good idea to join the various <a href="mail-lists.html">mailing lists</a> we run, to get a feel for the people and the discussions. Whether	you would like to submit a new idea, a code improvement, a patch to an existing issue or anything else at all take some time to introduce yourself and let us all know what you're up to.
+				</p>
+				<p>
+					A great way to start development is to review the list of outstanding issues in <a class="externalLink" href="https://issues.apache.org/jira/browse/AWF">JIRA</a>, for which you will need to create an account. When development is completed, the first thing to do is ensure that the build - including all tests - completes without error. Following this, you should attach a patch merged against the current branch to the JIRA itself. Note that prior to submission you must select the toggle to permit ASF inclusion of the code, as per the <a href="license.html">licence</a>. The code will be reviewed, and possibly discussed before a committer puts it into the branch.
+				</p>
+			</subsection>
+
+			<subsection name="Continuous Integration">
+				<p>
+					Following any commit, the application will build through the <a class="externalLink" href="https://builds.apache.org/job/AWF/">Jenkins</a> environment. When the build completes, the job is done! Time for the next ticket...
+				</p>
+			</subsection>
+
+			<subsection name="Apache Guide">
+				<p>
+					The general Apache guide to getting involved can be found <a class="externalLink" href="http://www.apache.org/foundation/getinvolved.html">here</a>.
+				</p>
+			</subsection>
+		</section>
+	</body>
+</document>

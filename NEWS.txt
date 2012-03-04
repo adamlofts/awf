@@ -1,0 +1,93 @@
+0.4.0
+=====
+ 
+Features / Improvements
+-----------------------
+    - Asynchronous HTTP client has configurable redirect support (HTTP status code 301 & 302) (#118)
+    - Asynchronous HTTP client supports 'Transfer-Encoding: chunked' (#116)
+    - Multi-threaded web server support (#139)
+    - Experimental support for large static files. (Nb. will memory map the entire file) (#75)
+    - Improved documentation for the AsynchronousSocket (#152)
+    - Using the AsynchronousSocket for server operations is officially supported (#150)
+    - Bug fix. Non deterministic behaviour when multiple timeouts have exact same deadline (DEFT-156)
+    - AsynchronousSocket accepts SocketChannel instead of SelectableChannel (DEFT-162)
+    - Improved error handling in AsynchronousSocket (DEFT-154)
+    - Bug fix. NPE when using AsynchronousSocket.write (DEFT-155)
+    - Asynchronous HTTP client supports POST and PUT (DEFT-117)
+    - Support for HTTP Cookies (DEFT-52)
+    - Request handlers now configured through annotations (DEFT-100)
+    
+Configuration
+-------------
+     - See org.apache.deft.example.DeftServerExample (or www.deftserver.org) for
+       configuration and usage hints.
+
+
+
+0.3.0
+=====
+ 
+Features
+--------
+    - Authentication support (#83)
+    - Header names are now case-insensitive (#48)
+    - Generic callbacks in IOLoop (#93)
+    - Bug fix. ConcurrentModificationException if a new timeout was added in a timeout callback (#89)
+    - Http HEAD support (#58)
+    - Bug fix. RequestHandler not found if query parameters is present. (#104)
+    - Periodic callbacks. Schedule a job to be executed by the IOLoop every nth ms. (#90)
+    - Bug Fix. Selector timeout tuning. (#108)
+    - Asynchronous socket to help third party developers. (#109)
+    - Asynchronous HTTP client (#97)
+    - IOLoop.addCallback is thread safe (#103)
+    - Bug fix. Proper 'keep-alive' management in web server component (#99)
+
+Configuration
+------------
+     - See org.deftserver.example.DeftServerExample (or www.deftserver.org) for
+       configuration and usage hints.
+
+
+
+0.2.0
+=====
+ 
+Features
+--------
+    - Asynchronous writes done right (#63).
+    - Support for third party libraries to work within Deft's IOLoop (#62)
+      (Thanks to github.com/williame and github.com/sris for inspiration and implementation details).
+    - Improved write performance (Using the fact that a java.nio socket write buffer is always writable as long
+      its space left in the write buffer, #74)
+    - Closed HTTP request premature in HttpResponse.finish() (#72)
+    - JMX monitoring (read only) for IOLoop (#68)
+    - Configurable knobs, e.g. keep-alive timeout, read/write buffer sizes. (#57, #67)
+    - java.nio.ByteBuffer reuse (byte[] allocation is expensive) (#77)
+    - Timeouts (JMX debuggable) (#80, #85)
+    - HTTP Post support (#50, #71)
+         
+Configuration
+------------
+     - See org.deftserver.example.DeftServerExample (or www.deftserver.org) for
+       configuration and usage hints.
+       
+
+
+0.1.0
+=====
+ 
+Features
+--------
+    - Date headers are always sent in http response (#29).
+    - Support for non-blocking, asynchronous requests (#11). 
+    - Regular expressions (with capturing groups) in URL mapping (#10).
+    - Support for HTTP GET parameters (#35).
+    - Persistent connections ('Connection: Keep-Alive') (#19).
+    - Static resources (#21 and #28, thanks to github.com/williame for pointing in right direction).
+    - JMX api for monitoring 'keep-alive' connections.
+     
+Configuration
+------------
+     - See org.deftserver.example.DeftServerExample (or www.deftserver.org) for
+       configuration and usage hints.
+       
