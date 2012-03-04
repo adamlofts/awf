@@ -371,6 +371,18 @@ public class HttpRequestImpl implements HttpRequest {
         return contentLength;
     }
 
+    /**
+     * Check wether this request body uses chunked encoding
+     * @return
+     */
+    public boolean isChunked(){
+        String te =headers.get("transfer-encoding");
+        if (te != null){
+           return te.indexOf("chunked") > -1;
+        }
+        return false;
+    }
+
 
     protected void incrementChunkSize(int size){
         chunkedSize += size;
@@ -389,7 +401,7 @@ public class HttpRequestImpl implements HttpRequest {
         if (res ){
             if (contentLength > 0){
                 res = contentLength <= bodyBuffer.position();
-            }else {
+            }else if (isChunked()){
                 res = context.chunked;
             }
         }

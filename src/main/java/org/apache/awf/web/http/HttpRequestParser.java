@@ -72,6 +72,11 @@ public class HttpRequestParser {
         if(context.chunkSize > 0){
             status = pushChunkToBody(buffer, result,  context);
         }
+         // Copy body data to the request bodyBuffer
+        if (context.isbodyFound() && result.getContentLength() > 0){
+            pushRemainingToBody(context.buffer, result.getBodyBuffer(), result.getContentLength());
+            status = 0;
+        }
 
         // while no errors and buffer not finished
         while ((status = lexer.nextToken(context)) > 0){
@@ -98,7 +103,7 @@ public class HttpRequestParser {
                    if (result.getContentLength() > 0){
                       pushRemainingToBody(context.buffer, result.getBodyBuffer(), result.getContentLength());
                       status = 0;
-                   }else if (!context.chunked){
+                   }else if (result.isChunked() && !context.chunked){
                        context.chunked =true;
                        context.currentType = HttpParsingContext.TokenType.CHUNK_OCTET;
                        result.buildChunkedBody();
@@ -112,8 +117,8 @@ public class HttpRequestParser {
                    if (parts.length >0){
                        try {
                            context.chunkSize = Integer.parseInt(parts[0].trim(), 16);
-                           if (context.chunkSize == 0){// Last Chunk gets 0
-                                context.currentType = HttpParsingContext.TokenType.HEADER_NAME;
+                           if (context.chunkSize == 0){// Last Chunk gets 0 so we can try to read footers
+                                context.currentType = HttpParsingContext.TokenType.HTTP_VERSION;
                            }else {
                                 result.incrementChunkSize(context.chunkSize);
                                 context.incrementAndGetPointer();

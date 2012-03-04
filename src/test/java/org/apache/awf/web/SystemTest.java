@@ -1110,7 +1110,7 @@ public class SystemTest {
     @Test
     public void serverChunkedBodyRequest()throws Exception{
         HttpClient httpclient   = new DefaultHttpClient();
-        HttpPost httpPost       = new HttpPost("http://localhost:" + PORT + "/query_params?key1=value1&key2=value2");
+        HttpPost httpPost       = new HttpPost("http://localhost:" + PORT + "/echo");
         StringEntity se         = new StringEntity("azertyuiopqsdfghjklmwxc\nvbn1234567890");
         se.setChunked(true);
         httpPost.setEntity(se);
