@@ -65,6 +65,11 @@ public class HttpServer {
         application.setStaticContentDir(configuration.getStaticDirectory());
         application.setConfiguration(configuration);
     }
+    
+    public HttpServer(Configuration configuration, Application application) {
+    	this.application = application;
+    	this.configuration = configuration;
+    }
 
     /**
      * If you want to run AWF with multiple threads first invoke
