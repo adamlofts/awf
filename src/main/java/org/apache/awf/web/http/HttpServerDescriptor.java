@@ -26,7 +26,7 @@ package org.apache.awf.web.http;
 public class HttpServerDescriptor {
 
 	/** The number of seconds AWF will wait for subsequent socket activity before closing the connection */
-	public static int KEEP_ALIVE_TIMEOUT = 30 * 1000;	// 30s
+	public static int KEEP_ALIVE_TIMEOUT = 5 * 60 * 1000;	// 5 mins
 	
 	/**
 	 * Size of the read (receive) buffer.
