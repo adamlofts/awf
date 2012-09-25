@@ -18,64 +18,69 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.apache.awf</groupId>
-		<artifactId>awf-parent</artifactId>
-		<version>0.4.0-SNAPSHOT</version>
-	</parent>
 	<artifactId>awf-core</artifactId>
-
 	<name>Apache AWF Core</name>
+	<version>0.4.2-SNAPSHOT</version>
+	<groupId>com.apache.awf</groupId>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
+			<version>r08</version>
 		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
 			<scope>test</scope>
+			<version>1.8.5</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-module-junit4</artifactId>
+			<version>1.4.10</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-api-mockito</artifactId>
+			<version>1.4.10</version>
 		</dependency>
 
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<type>jar</type>
+			<version>1.0.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
+			<version>4.1</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.ning</groupId>
 			<artifactId>async-http-client</artifactId>
+			<version>1.6.1</version>
 		</dependency>
 
 		<dependency>
 			<groupId>javax.activation</groupId>
 			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<extensions>
 			<extension>
@@ -224,13 +229,13 @@
 				<role>Committer</role>
 			</roles>
 		</developer>
-        <developer>
-            <id>slemesle</id>
-            <name>Séven Le Mesle</name>
-            <roles>
-                <role>Committer</role>
-            </roles>
-        </developer>
+		<developer>
+			<id>slemesle</id>
+			<name>Séven Le Mesle</name>
+			<roles>
+				<role>Committer</role>
+			</roles>
+		</developer>
 	</developers>
 
 	<contributors>
